@@ -14,23 +14,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package main
+package controller
 
-import (
-	"fmt"
-	"os"
-
-	"github.com/joshvanl/cert-manager-example-issuer/cmd"
+const (
+	ControllerName = "my-company"
 )
-
-func main() {
-	stopCh := make(chan struct{})
-
-	c := cmd.NewCommandStartCertManagerController(stopCh)
-	if err := c.Execute(); err != nil {
-		fmt.Fprintf(os.Stderr, "%s\n", err)
-		os.Exit(1)
-	}
-
-	os.Exit(0)
-}
